@@ -2,16 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nabvar from "./components/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: "E-Commerce",
@@ -25,11 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={clsx(`bg-slate-700`)}>
         <Nabvar />
-        <main className="bg-slate-700 h-screen p-16">{children}</main>
+        <main className=" h-screen p-16">{children}</main>
       </body>
     </html>
   );
